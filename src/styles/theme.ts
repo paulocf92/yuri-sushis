@@ -1,10 +1,10 @@
 export default {
   colors: {
     background: '#111519',
-    background_darker: '#101519',
+    background_darker: '#0a0e0f',
 
     white: '#fdfdff',
-    white_darker: '#fbfbfc',
+    white_translucent: 'rgba(230, 230, 230, 0.7)',
 
     yellow: '#d2a951',
     yellow_dark: '#ae8e47',

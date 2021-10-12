@@ -11,6 +11,7 @@ import {
 } from '@expo-google-fonts/nunito';
 
 import Home from './src/screens/Home';
+import Splash from './src/screens/Splash';
 
 import theme from './src/styles/theme';
 
@@ -33,7 +34,7 @@ export default function App() {
         backgroundColor='transparent'
         translucent
       />
-      <Home />
+      <Splash />
     </ThemeProvider>
   );
 }
