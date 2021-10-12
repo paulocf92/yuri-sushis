@@ -1,0 +1,12 @@
+{
+  "name": "yurisushis",
+  "displayName": "yuri-sushis",
+  "expo": {
+    "name": "yuri-sushis",
+    "slug": "yuri-sushis",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
