@@ -14,6 +14,8 @@ export default function AppRoutes() {
 
   return (
     <Navigator
+      backBehavior='initialRoute'
+      initialRouteName='Menu'
       screenOptions={{
         headerStyle: {
           backgroundColor: theme.colors.background_darker,
@@ -29,6 +31,7 @@ export default function AppRoutes() {
         tabBarInactiveBackgroundColor: theme.colors.background_darker,
         tabBarStyle: {
           paddingVertical: Platform.OS === 'ios' ? 20 : 0,
+          borderTopWidth: 0,
           height: 60,
         },
       }}
@@ -38,7 +41,7 @@ export default function AppRoutes() {
         component={Menu}
         options={{
           tabBarLabel: 'Menu',
-          headerTitle: 'Menu',
+          headerTitle: 'Our Menu',
           tabBarIcon: ({ size, color }) => (
             <MaterialIcons name='menu-book' size={size} color={color} />
           ),
