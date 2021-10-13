@@ -1,33 +1,43 @@
 import React, { useEffect } from 'react';
+import { useNavigation, ParamListBase } from '@react-navigation/native';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withTiming,
   interpolate,
   Extrapolate,
+  runOnJS,
 } from 'react-native-reanimated';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useTheme } from 'styled-components';
 
 import HashiPng from '../../assets/hashi.png';
 
 import {
   Container,
   TopBlock,
-  Wrapper,
   Title,
   Description,
   HashiImage,
+  Footer,
 } from './styles';
 
 const AnimatedImage = Animated.createAnimatedComponent(HashiImage);
-const AnimatedWrapper = Animated.createAnimatedComponent(Wrapper);
+const AnimatedBlock = Animated.createAnimatedComponent(TopBlock);
+const AnimatedGradient = Animated.createAnimatedComponent(Footer);
+
+type Navigation = BottomTabNavigationProp<ParamListBase>;
 
 export default function Splash() {
-  const theme = useTheme();
+  const navigation = useNavigation<Navigation>();
   const splashAnimation = useSharedValue(0);
 
   const blockStyle = useAnimatedStyle(() => {
+    return {
+      opacity: interpolate(splashAnimation.value, [0, 35, 50], [0, 0.3, 1]),
+    };
+  });
+
+  const gradientStyle = useAnimatedStyle(() => {
     return {
       opacity: interpolate(splashAnimation.value, [0, 35, 50], [0, 0.3, 1]),
     };
@@ -49,34 +59,26 @@ export default function Splash() {
     };
   });
 
+  function startApp() {
+    navigation.navigate('App');
+  }
+
   useEffect(() => {
-    splashAnimation.value = withTiming(50, { duration: 2000 });
+    splashAnimation.value = withTiming(50, { duration: 2000 }, () => {
+      'worklet';
+      runOnJS(startApp)();
+    });
   }, []);
 
   return (
     <Container>
-      <TopBlock>
-        <AnimatedWrapper style={[blockStyle]}>
-          <Title>Sushi</Title>
-          <Description>Full control of what you use and pay for</Description>
-        </AnimatedWrapper>
-      </TopBlock>
+      <AnimatedBlock style={[blockStyle]}>
+        <Title>Yuri Sushis</Title>
+        <Description>Full control of what you use and pay for</Description>
+      </AnimatedBlock>
       <AnimatedImage source={HashiPng} style={[hashiImageStyle]} />
 
-      <LinearGradient
-        colors={[
-          theme.colors.yellow,
-          theme.colors.yellow,
-          theme.colors.background,
-          theme.colors.background,
-        ]}
-        start={{ x: 0.4, y: 0.3 }}
-        end={{ x: 0.41, y: 0.92 }}
-        locations={[0, 0.49, 0.5, 1]}
-        style={{
-          height: 50,
-        }}
-      />
+      <AnimatedGradient style={[gradientStyle]} />
     </Container>
   );
 }

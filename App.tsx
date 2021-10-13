@@ -10,10 +10,8 @@ import {
   Nunito_700Bold,
 } from '@expo-google-fonts/nunito';
 
-import Home from './src/screens/Home';
-import Splash from './src/screens/Splash';
-
 import theme from './src/styles/theme';
+import Routes from './src/routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -34,7 +32,7 @@ export default function App() {
         backgroundColor='transparent'
         translucent
       />
-      <Splash />
+      <Routes />
     </ThemeProvider>
   );
 }

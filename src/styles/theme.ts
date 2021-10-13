@@ -6,7 +6,10 @@ export default {
     white: '#fdfdff',
     white_translucent: 'rgba(230, 230, 230, 0.7)',
 
+    gray: '#969cb2',
+
     yellow: '#d2a951',
+    yellow_light: '#e9be63',
     yellow_dark: '#ae8e47',
   },
   fonts: {
