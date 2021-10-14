@@ -7,6 +7,8 @@ import { useTheme } from 'styled-components';
 import Menu from '../screens/Menu';
 import Booking from '../screens/Booking';
 
+import BookingRoutes from './booking.routes';
+
 const { Navigator, Screen } = createBottomTabNavigator();
 
 export default function AppRoutes() {
@@ -48,8 +50,8 @@ export default function AppRoutes() {
         }}
       />
       <Screen
-        name='Booking'
-        component={Booking}
+        name='BookingRoutes'
+        component={BookingRoutes}
         options={{
           tabBarLabel: 'Booking',
           headerTitle: 'Booking',

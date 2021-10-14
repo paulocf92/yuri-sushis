@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigation, ParamListBase } from '@react-navigation/native';
-import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { useNavigation } from '@react-navigation/native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -11,6 +10,8 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import HashiPng from '../../assets/hashi.png';
+
+import { StackNavigation } from '../../routes/types';
 
 import {
   Container,
@@ -25,10 +26,8 @@ const AnimatedImage = Animated.createAnimatedComponent(HashiImage);
 const AnimatedBlock = Animated.createAnimatedComponent(TopBlock);
 const AnimatedGradient = Animated.createAnimatedComponent(Footer);
 
-type Navigation = BottomTabNavigationProp<ParamListBase>;
-
 export default function Splash() {
-  const navigation = useNavigation<Navigation>();
+  const navigation = useNavigation<StackNavigation>();
   const splashAnimation = useSharedValue(0);
 
   const blockStyle = useAnimatedStyle(() => {

@@ -1,12 +1,25 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-import { Container } from './styles';
+import Button from '../../components/Button';
+
+import { Container, Title } from './styles';
+
+import { StackNavigation } from '../../routes/types';
 
 export default function Booking() {
+  const { navigate } = useNavigation<StackNavigation>();
+
   return (
-    <Container style={{ justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Book</Text>
+    <Container>
+      <Title>
+        Pick a date to try out some of our dishes, you will be surprised!
+      </Title>
+
+      <Button
+        title='Make a reservation'
+        onPress={() => navigate('BookingDetails')}
+      />
     </Container>
   );
 }

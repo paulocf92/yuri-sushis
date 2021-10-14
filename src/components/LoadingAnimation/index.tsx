@@ -5,7 +5,7 @@ import loadingSushi from '../../assets/cute-sushi.json';
 
 import { Container } from './styles';
 
-export default function LoadAnimation() {
+export default function LoadingAnimation() {
   return (
     <Container>
       <LottieView

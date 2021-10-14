@@ -8,8 +8,8 @@ export default {
 
     gray: '#969cb2',
 
-    yellow: '#d2a951',
-    yellow_light: '#e9be63',
+    yellow: '#d2a33f',
+    yellow_light: '#f2bd4e',
     yellow_dark: '#ae8e47',
   },
   fonts: {
