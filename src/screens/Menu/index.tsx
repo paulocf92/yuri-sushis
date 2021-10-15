@@ -2,6 +2,8 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import { BackHandler } from 'react-native';
 
+import { SPOONACULAR_API_KEY } from '@env';
+
 import { Dish } from '../../interfaces/Dish';
 
 import LoadingAnimation from '../../components/LoadingAnimation';
@@ -17,7 +19,7 @@ export default function Menu() {
     async function fetchSushiDishes() {
       try {
         const response = await fetch(
-          'https://api.spoonacular.com/food/products/search?query=sushi&apiKey=696374bcf2c2444e9f54ef5ee271331d&number=42'
+          `https://api.spoonacular.com/food/products/search?query=sushi&apiKey=${SPOONACULAR_API_KEY}&number=42`
         );
         const data = await response.json();
 
